@@ -1,0 +1,129 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="BlankApp" ng-cloak>
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script src="script/script.js"></script>
+  <div class="container" ng-controller="DemoCtrl">
+    <div layout class="header">
+      <div flex="12" class="border">
+        <img class="image" src="img/Karthick.jpg">
+      </div>
+      <div flex="45" class="align">
+        <span class="heading">Karthick Ravichandran</span><span class="designation">{{department}}</span><br>
+        <span class="designation" ng-repeat="roles in Designation">{{roles.role}}<br></span>
+      </div>
+      <div flex="40" class="details">
+        <div class="contact">{{contact.address}}<br></div>
+        <div class="contact">{{contact.mobile}}<br></div>
+        <div class="contact">{{contact.email}}<br></div>
+      </div>
+    </div>
+    <div>
+      <div class="content">
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="About">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Introduction</h1>
+              <div layout>
+                <div flex="45" class="left">
+                  <div class="objective">
+                    Objective
+                  </div>
+                  <div class="intro">
+                    {{intro}}
+                  </div>
+                </div>
+                <div flex class="right">
+                  <div class="objective">
+                    Hobbies
+                  </div>
+                  <div class="list">
+                    <ul>
+                      <li>Writing Tamil poems in my own blogs <a href="http://karthilancer05.blogspot.com/" target="_blank">http://karthilancer05.blogspot.com/</a>
+                        &
+                        <a href="http://karthick594.blogspot.in/" target="_blank">http://karthick594.blogspot.in/</a>
+                      </li>
+                      <li>Sample visit <a href="https://welcomefoodlover.000webhostapp.com/" target="_blank">https://welcomefoodlover.000webhostapp.com/</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="Experience">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Experience</h1>
+              <div class="exp" layout>
+                <img flex="33" src="img/ag_logo.png" height="100px" width="150px" style="margin:15px;" ng-click="Ariveguru($event)">
+                <img flex="33" src="img/IBM-Logo.png" height="100px" width="150px" style="margin:15px;" ng-click="IBM($event)">
+                <img flex="33" src="img/toshiba.png" height="100px" width="150px" style="margin:15px;" ng-click="Toshiba($event)">
+              </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="Education">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Education</h1>
+              <div layout>
+                <div flex="25">
+                  <img src="img/cit.png" height="150px" width="150px" style="margin:15px;" ng-click="Cit($event)">
+                </div>
+                <div flex="55" class="cit">
+                  {{citCollege}}
+                </div>
+              </div>
+              <div>
+                <div class="experience" ng-repeat="exp in academic">
+                  <p layout><span flex="20" class="topic">Topic : </span><span flex="80" class="answer1">{{exp.topic}}</span></p>
+                  <p layout><span flex="20" class="topic">Description : </span><span flex="80" class="answer">{{exp.description}}</span></p>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="Skills">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Skills</h1>
+              <div layout>
+                <div flex="45" class="left">
+                  <div class="list" ng-repeat="skill in techskill">
+                    <ul>
+                      <li>
+                        {{skill.skill}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div flex class="right">
+                  <div class="list" ng-repeat="ide in techide">
+                    <ul>
+                      <li>
+                        {{ide.ide}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
